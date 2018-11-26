@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- Bootstrap -->
+    <link href="../bootstrap.min.css" rel="stylesheet">
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app" class="container">
+        <h1>vue-resource插件讲解</h1>
+        <a href="javascript:;" class="btn btn-primary" v-on:click="get">GET请求</a>
+        <a href="javascript:;" class="btn btn-primary" @click="post">POST请求</a>
+        <a href="javascript:;" class="btn btn-primary" @click="http">HTTP请求</a>
+        <div>
+            <span>{{ msg }}</span>
+        </div>
+    </div>
+    <script>
+        //创建一个vue的实例(使用new的方式)
+        new Vue({
+            el: "#app",
+            data: {
+                msg: ''
+            },
+            mounted: function() {
+
+            },
+            methods: {
+                get: function() {
+                    axios.get("package.json", {
+                        paramas: {
+                            userId: "999"
+                        },
+                        headers: {
+                            token: "jack"
+                        },
+                        before: function() {
+                            console.log("before init")
+                        }
+                    }).then(res => {
+                        this.msg = res.data
+                    }).catch(function() {
+                        console.log("error init." + error)
+                    })
+                },
+                post: function() {
+                    axios.post("package.json", {
+                        userId: "888"
+                    }, {
+                        headers: {
+                            token: "tom"
+                        }
+                    }).then(res => {
+                        this.msg = res.data
+                    })
+                },
+                http: function() {
+                    axios({
+                        url: "package.json",
+                        method: "get",
+                        data: {
+                            userId: '999'
+                        },
+                        headers: {
+                            token: "http-test"
+                        }
+                    }).then(res => {
+                        this.msg = res.data
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

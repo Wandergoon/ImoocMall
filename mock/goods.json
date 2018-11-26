@@ -1,0 +1,32 @@
+{
+    "status": "0",
+    "msg": "",
+    "result": [{
+            "productId": "100001",
+            "productName": "音响",
+            "productPrice": 199,
+            "productImg": "1.jpg"
+        },
+        {
+            "productId": "100001",
+            "productName": "先想想",
+            "productPrice": 299,
+            "productImg": "2.jpg"
+
+        },
+        {
+            "productId": "100001",
+            "productName": "美好",
+            "productPrice": 199,
+            "productImg": "3.jpg"
+
+        },
+        {
+            "productId": "100001",
+            "productName": "坑你",
+            "productPrice": 899,
+            "productImg": "4.jpg"
+
+        }
+    ]
+}

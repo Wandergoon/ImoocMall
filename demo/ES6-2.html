@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6-2demo演示</title>
+</head>
+
+<body>
+    <h2>ES6-2Demo演示</h2>
+    <script>
+        function sum(x, y, z) {
+            let total = 0;
+            if (x) total += x;
+            if (y) total += y;
+            if (z) total += z;
+
+            console.log("total:${total}")
+
+        }
+        sum(2, '', 4)
+
+        //REST参数
+        //..m不定参数个数(Rest参数,是动态参数)
+        function sum2(...m) {
+            let total = 0;
+            for (var i of m) {
+                total += i
+            }
+            console.log('total:${total}')
+        }
+        sum2(4, 8, 9, 1, 0)
+
+        //箭头函数
+        // let sum3 = (...m) => item + 1; //如果只有一行的话
+        //多行代码使用大括号
+        let sum3 = (...m) => {
+            let total = 0;
+            for (var i of m) {
+                total += i
+            }
+            console.log('total:${total}')
+        }
+        console.log(sum3)
+
+        // var [x, y] = [4, 8]
+        //三个点和数组放在一起之后就会对数组进行拆解扩展,拆解之后进行输出
+        // console.log(...[4, 8])
+
+        //合并数组(第一种使用concat)
+        let arr1 = [1, 3]
+        let arr2 = [4, 8]
+        arr1.concat(arr2)
+        console.log("concat:" + arr1.concat(arr2))
+
+        //2 通过数组的扩展怎样合并
+        // [...arr1, ...arr2]
+
+        //3 动态的(y是动态的)
+        var [x, ...y] = [4, 8, 10, 30]
+        //打印一下y(3) [8, 10, 30]
+
+        let [a, b, c] = "ES6"
+
+        let xy = [...
+            'ES6'
+        ]
+    </script>
+</body>
+
+</html>
